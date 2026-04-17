@@ -1,0 +1,17 @@
+# Build folders
+cmake-build-*/
+build/
+
+# CLion
+.idea/
+
+# Binaries
+*.exe
+*.dll
+*.lib
+*.a
+*.o
+
+# OS junk
+.DS_Store
+Thumbs.db
