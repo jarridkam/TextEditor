@@ -7,11 +7,10 @@
 
 static int screenWidth;
 static int screenHeight;
-static bool fullscreen = false;
 
-void SetScreen(bool _fullscreen)
+void SetScreen(const bool fullscreen)
 {
-    if (_fullscreen)
+    if (fullscreen)
     {
         screenWidth = GetScreenWidth();
         screenHeight = GetScreenHeight();
@@ -19,15 +18,13 @@ void SetScreen(bool _fullscreen)
     }
     screenWidth = 800;
     screenHeight = 450;
-
 }
-static char text_buffer[8192];
+
 
 int main(void)
 {
 
-
-    SetScreen(true);
+    SetScreen(false);
     InitWindow(screenWidth, screenHeight, "Text Editor");
     SetTargetFPS(60);
 
@@ -35,13 +32,12 @@ int main(void)
     {
 
         BeginDrawing();
-        CheckInputs(text_buffer, GetFrameTime());
+        CheckInputs();
         ClearBackground(BLACK);
         DrawText(text_buffer, 0, 30, 20, LIGHTGRAY);
         EndDrawing();
     }
 
     CloseWindow();
-    free(text_buffer);
     return 0;
 }

@@ -4,8 +4,8 @@
 
 #ifndef TEXTEDITOR_EDITOR_INPUTS_H
 #define TEXTEDITOR_EDITOR_INPUTS_H
-
+#include "buffer.h"
 #include "raylib/src/raylib.h"
-void CheckInputs(char* buffer, float delta_time);
+void CheckInputs();
 
 #endif //TEXTEDITOR_EDITOR_INPUTS_H
