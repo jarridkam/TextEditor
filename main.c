@@ -4,17 +4,32 @@
 
 #include "editor_inputs.h"
 
-const int screenWidth = 800;
-const int screenHeight = 450;
+
+static int screenWidth;
+static int screenHeight;
+static bool fullscreen = false;
+
+void SetScreen(bool _fullscreen)
+{
+    if (_fullscreen)
+    {
+        screenWidth = GetScreenWidth();
+        screenHeight = GetScreenHeight();
+        return;
+    }
+    screenWidth = 800;
+    screenHeight = 450;
+
+}
+static char text_buffer[8192];
 
 int main(void)
 {
-    char *text_buffer = calloc(8192, 1);
 
+
+    SetScreen(true);
     InitWindow(screenWidth, screenHeight, "Text Editor");
     SetTargetFPS(60);
-
-
 
     while (!WindowShouldClose())
     {

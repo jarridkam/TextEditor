@@ -12,7 +12,7 @@ void CheckInputs(char* buffer, float delta_time)
     static float backspace_hold_time = 0.0f;
     static float backspace_repeat_delay = 0.10f;
     static float backspace_initial_delay = 0.35f;
-    static int backspace_started = 0;
+    static bool backspace_started = false;
 
     int key;
 
@@ -43,12 +43,12 @@ void CheckInputs(char* buffer, float delta_time)
         {
             buffer[--buffer_length] = '\0';
             backspace_hold_time = 0.0f;
-            backspace_started = 1;
+            backspace_started = true;
         }
     }
     else
     {
         backspace_hold_time = 0.0f;
-        backspace_started = 0;
+        backspace_started = false;
     }
 }

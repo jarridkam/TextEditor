@@ -8,6 +8,7 @@ add_subdirectory(raylib)
 add_executable(TextEditor main.c
         editor_inputs.c
         editor_inputs.h
+        main.c
 )
 
 target_link_libraries(TextEditor PRIVATE raylib)
