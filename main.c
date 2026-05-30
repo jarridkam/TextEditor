@@ -3,21 +3,21 @@
 #include <string.h>
 
 #include "editor_inputs.h"
+#include "page.h"
 
-
-static int screenWidth;
-static int screenHeight;
+static int screen_width;
+static int screen_height;
 
 void SetScreen(const bool fullscreen)
 {
     if (fullscreen)
     {
-        screenWidth = GetScreenWidth();
-        screenHeight = GetScreenHeight();
+        screen_width = GetScreenWidth();
+        screen_height = GetScreenHeight();
         return;
     }
-    screenWidth = 800;
-    screenHeight = 450;
+    screen_width = 800;
+    screen_height = 450;
 }
 
 
@@ -25,19 +25,21 @@ int main(void)
 {
 
     SetScreen(false);
-    InitWindow(screenWidth, screenHeight, "Text Editor");
+    InitWindow(screen_width, screen_height, "Text Editor");
     SetTargetFPS(60);
 
     while (!WindowShouldClose())
     {
-
         BeginDrawing();
-        CheckInputs();
-        ClearBackground(BLACK);
-        DrawText(text_buffer, 0, 30, 20, LIGHTGRAY);
+
+        ClearBackground(RAYWHITE);
+
+        DrawText(text_buffer, 190, 200, 20, LIGHTGRAY);
+
         EndDrawing();
     }
 
     CloseWindow();
     return 0;
 }
+

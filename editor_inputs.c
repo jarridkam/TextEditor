@@ -8,6 +8,8 @@ static float backspace_repeat_delay = 0.10f;
 static float backspace_initial_delay = 0.35f;
 static bool backspace_started = false;
 
+
+
 void insert_character() {
     while ((key = GetCharPressed()) > 0)
     {
