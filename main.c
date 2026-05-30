@@ -34,7 +34,7 @@ int main(void)
 
         ClearBackground(RAYWHITE);
 
-        DrawText(text_buffer, 190, 200, 20, LIGHTGRAY);
+        //DrawText(text_buffer, 190, 200, 20, LIGHTGRAY);
 
         EndDrawing();
     }
