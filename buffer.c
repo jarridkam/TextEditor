@@ -77,7 +77,7 @@ void moveGapTo(GapBuffer *buffer, size_t target_index)
         );
 
         buffer->gap_start -= move_count;
-        buffer->gap_end -= move_count;
+        buffer->gap_end   -= move_count;
     }
     else if (target_index > buffer->gap_start)
     {
@@ -93,4 +93,13 @@ void moveGapTo(GapBuffer *buffer, size_t target_index)
         buffer->gap_end += move_count;
     }
 }
+
+void insertChar(GapBuffer *buffer, const char character)
+{
+}
+
+void deleteChar(GapBuffer *buffer, const char character)
+{
+}
+
 
