@@ -1,0 +1,4 @@
+*.h linguist-language=C
+
+clay.h linguist-vendored
+raylib/** linguist-vendored
