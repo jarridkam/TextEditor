@@ -18,7 +18,7 @@ size_t getGapSize(const GapBuffer *buffer)
     return buffer->gap_end - buffer->gap_start;
 }
 
-bool createGapBuffer(GapBuffer *buffer, size_t initial_capacity)
+bool initGapBuffer(GapBuffer *buffer, size_t initial_capacity)
 {
     if (buffer == NULL){return false;}
 

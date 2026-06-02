@@ -19,7 +19,7 @@ typedef struct
 } GapBuffer;
 
 
-bool createGapBuffer (GapBuffer *buffer, size_t initial_capacity);
+bool initGapBuffer (GapBuffer *buffer, size_t initial_capacity);
 void destroyGapBuffer(GapBuffer *buffer);
 
 size_t getGapBufferLength(const GapBuffer *buffer);

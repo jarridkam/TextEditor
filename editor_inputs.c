@@ -1,5 +1,6 @@
 #include "editor_inputs.h"
 #include "raylib/src/raylib.h"
+#include <stdio.h>
 
 static int key;
 static int buffer_length = 0;
@@ -10,11 +11,13 @@ static bool backspace_started = false;
 
 
 
-void insert_character(const GapBuffer* buffer) {
+void insert_character(const GapBuffer *buffer) {
     while ((key = GetCharPressed()) > 0)
     {
+        if (buffer!=NULL){printf("Buffer Null");}
         buffer->data[buffer_length++] = (char)key;
         buffer->data[buffer_length] = '\0';
+
     }
 }
 void remove_character(const GapBuffer* buffer) {
@@ -48,7 +51,7 @@ void remove_character(const GapBuffer* buffer) {
     }
 }
 
-void CheckInputs(GapBuffer* buffer) {
+void CheckInputs(const GapBuffer *buffer) {
     insert_character(buffer);
     remove_character(buffer);
 }

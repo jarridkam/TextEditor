@@ -29,13 +29,12 @@ int main(void)
     SetTargetFPS(60);
 
     GapBuffer *buffer = malloc(sizeof(*buffer));
+    initGapBuffer(buffer, sizeof(char) * screen_width * screen_height);
 
     if (buffer == NULL)
     {
         return -1;
     }
-
-    memset(buffer, 0, sizeof(*buffer));
 
     while (!WindowShouldClose())
     {
