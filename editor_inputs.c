@@ -10,17 +10,17 @@ static bool backspace_started = false;
 
 
 
-void insert_character() {
+void insert_character(const GapBuffer* buffer) {
     while ((key = GetCharPressed()) > 0)
     {
-        text_buffer[buffer_length++] = (char)key;
-        text_buffer[buffer_length] = '\0';
+        buffer->data[buffer_length++] = (char)key;
+        buffer->data[buffer_length] = '\0';
     }
 }
-void remove_character() {
+void remove_character(const GapBuffer* buffer) {
     if (IsKeyPressed(KEY_BACKSPACE) && buffer_length > 0)
     {
-        text_buffer[--buffer_length] = '\0';
+        buffer->data[--buffer_length] = '\0';
         backspace_hold_time = 0.0f;
         backspace_started = false;
     }
@@ -36,7 +36,7 @@ void remove_character() {
 
         if (backspace_hold_time >= threshold)
         {
-            text_buffer[--buffer_length] = '\0';
+            buffer->data[--buffer_length] = '\0';
             backspace_hold_time = 0.0f;
             backspace_started = true;
         }
@@ -48,7 +48,7 @@ void remove_character() {
     }
 }
 
-void CheckInputs() {
-    insert_character();
-    remove_character();
+void CheckInputs(GapBuffer* buffer) {
+    insert_character(buffer);
+    remove_character(buffer);
 }

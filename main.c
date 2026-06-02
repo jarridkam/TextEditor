@@ -28,17 +28,28 @@ int main(void)
     InitWindow(screen_width, screen_height, "Text Editor");
     SetTargetFPS(60);
 
+    GapBuffer *buffer = malloc(sizeof(*buffer));
+
+    if (buffer == NULL)
+    {
+        return -1;
+    }
+
+    memset(buffer, 0, sizeof(*buffer));
+
     while (!WindowShouldClose())
     {
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
 
-        //DrawText(text_buffer, 190, 200, 20, LIGHTGRAY);
+        CheckInputs(buffer);
+        DrawText(buffer->data, 190, 200, 20, LIGHTGRAY);
 
         EndDrawing();
     }
 
+    free(buffer);
     CloseWindow();
     return 0;
 }

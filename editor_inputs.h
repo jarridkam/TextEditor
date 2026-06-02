@@ -6,6 +6,6 @@
 #define TEXTEDITOR_EDITOR_INPUTS_H
 #include "buffer.h"
 #include "raylib/src/raylib.h"
-void CheckInputs();
+void CheckInputs(GapBuffer* buffer);
 
 #endif //TEXTEDITOR_EDITOR_INPUTS_H

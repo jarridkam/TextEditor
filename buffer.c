@@ -5,6 +5,18 @@
 #include "buffer.h"
 #include <stdlib.h>
 #include <memory.h>
+#include <string.h>
+
+size_t getGapBufferLength(const GapBuffer *buffer) {
+    if (buffer == NULL){return 0;}
+    return buffer->capacity - (buffer->gap_end - buffer->gap_start);
+}
+
+size_t getGapSize(const GapBuffer *buffer)
+{
+    if (buffer == NULL){return 0;}
+    return buffer->gap_end - buffer->gap_start;
+}
 
 bool createGapBuffer(GapBuffer *buffer, size_t initial_capacity)
 {
@@ -62,7 +74,7 @@ void moveGapTo(GapBuffer *buffer, size_t target_index)
 {
     if (buffer == NULL){return;}
 
-    size_t buffer_length = getGapBufferLength(buffer);
+    const size_t buffer_length = getGapBufferLength(buffer);
 
     if (target_index > buffer_length){target_index = buffer_length;}
 
