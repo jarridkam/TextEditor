@@ -29,6 +29,6 @@ void moveLeft  (GapBuffer *buffer);
 void moveRight (GapBuffer *buffer);
 void moveGapTo (GapBuffer *buffer, size_t target_index);
 void insertChar(GapBuffer *buffer, char character);
-void deleteChar(GapBuffer *buffer, char character);
+void deleteChar(GapBuffer *buffer);
 
 #endif //TEXTEDITOR_BUFFER_H

@@ -36,6 +36,7 @@ bool initGapBuffer(GapBuffer *buffer, size_t initial_capacity)
     buffer->capacity = initial_capacity;
     buffer->gap_start = 0;
     buffer->gap_end = initial_capacity;
+    buffer->data[0] = '\0';
 
     return true;
 }
@@ -108,10 +109,23 @@ void moveGapTo(GapBuffer *buffer, size_t target_index)
 
 void insertChar(GapBuffer *buffer, const char character)
 {
+    if (buffer == NULL){return;}
+    if (getGapSize(buffer) == 0){return;}
+
+    buffer->data[buffer->gap_start] = character;
+    buffer->gap_start++;
+
+    if (buffer->gap_start < buffer->gap_end)
+    {
+        buffer->data[buffer->gap_start] = '\0';
+    }
 }
 
-void deleteChar(GapBuffer *buffer, const char character)
+void deleteChar(GapBuffer *buffer)
 {
+    if (buffer == NULL){return;}
+    if (buffer->gap_start == 0){return;}
+
+    buffer->gap_start--;
+    buffer->data[buffer->gap_start] = '\0';
 }
-
-
